@@ -8,18 +8,19 @@ $(document).ready(function(){
   var clsAfter = false;
 
 
-console.log(operator.length === 1);
+//console.log(operator.length === 1);
   $('#cancel').on('click', function(){
     num1 = "";
     num2 = "";
+    operator = "";
     $('#screen').text("");
   });
 
   $('.buttons :not(".operator")').on('click', function(){
-    if ( clsAfter === true ) {
-        $('#screen').text("");
-        clsAfter = false;
-    } //this if statement added
+    // if ( clsAfter === true ) {
+    //     $('#screen').text("");
+    //     clsAfter = false;
+    // } //this if statement added
     //$('#screen').append($(this).text());
     //screen holds 14 charecters
     if (operator.length === 0 ){
@@ -27,7 +28,7 @@ console.log(operator.length === 1);
       $('#screen').text(num1);
     } else {
       num2 = num2 + $(this).text();
-      $('#screen').text(num2);
+      $('#screen').text(num1 + operator + num2);
   }
     console.log("num1: " + num1);
     console.log("num2: " + num2);
@@ -35,7 +36,7 @@ console.log(operator.length === 1);
 
   $('.operator:not("#cancel, #calc")').on('click', function(){
     operator = $(this).text();
-    clsAfter = true;
+    //clsAfter = true;
     $('#screen').append($(this).text());
     //$('#screen').text("");
     console.log("operator input: " + operator);
